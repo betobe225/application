@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExpressDelivery - Confirmation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(-45deg, #004d40, #00695c, #01579b, #0277bd);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .confirmation-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            width: 90%;
+            max-width: 500px;
+            margin: 20px;
+        }
+
+        .success-icon {
+            font-size: 60px;
+            margin: 20px 0;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        h1 {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .confirmation-details {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .detail-item {
+            color: white;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .detail-icon {
+            min-width: 24px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .action-button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .primary-button {
+            background: rgba(255, 255, 255, 0.9);
+            color: #004d40;
+        }
+
+        .secondary-button {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            color: white;
+        }
+
+        .action-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .tracking-number {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 18px;
+            color: white;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 480px) {
+            .confirmation-container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            .success-icon {
+                font-size: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="confirmation-container">
+        <div class="success-icon">📦</div>
+        <h1>Demande d'envoi confirmée !</h1>
+        
+        <div class="tracking-number">
+            #EXP-2024-12345
+        </div>
+
+        <div class="confirmation-details">
+            <div class="detail-item">
+                <span class="detail-icon">📍</span>
+                <span>Un livreur va prendre en charge votre colis</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-icon">📱</span>
+                <span>Vous recevrez une notification dès qu'un livreur accepte</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-icon">📊</span>
+                <span>Suivez votre colis en temps réel</span>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <a href="tracking.html" class="action-button primary-button">
+                Suivre mon colis
+            </a>
+            <a href="index.html" class="action-button secondary-button">
+                Retour à l'accueil
+            </a>
+        </div>
+    </div>
+
+    <script src="transition.js"></script>
+</body>
+</html> 

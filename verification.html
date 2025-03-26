@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExpressDelivery - Vérification Livreur</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(-45deg, #004d40, #00695c, #01579b, #0277bd);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .verification-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            width: 90%;
+            max-width: 500px;
+            margin: 20px;
+        }
+
+        .logo-container {
+            margin-bottom: 20px;
+        }
+
+        .logo-container a {
+            cursor: pointer;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container img {
+            width: 120px;
+            height: auto;
+        }
+
+        .logo-container a:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .verification-steps {
+            text-align: left;
+            margin: 30px 0;
+        }
+
+        .step {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .step-icon {
+            font-size: 24px;
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .step-content {
+            flex-grow: 1;
+        }
+
+        .step h3 {
+            margin: 0 0 5px 0;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .step p {
+            margin: 0;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .verification-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .verify-button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .verify-button.primary {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+        }
+
+        .verify-button.secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .verify-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .verify-button.primary:hover {
+            background: white;
+        }
+
+        .verify-button.secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 480px) {
+            .verification-container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            .step {
+                padding: 12px;
+            }
+
+            .step h3 {
+                font-size: 14px;
+            }
+
+            .step p {
+                font-size: 12px;
+            }
+
+            .verify-button {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="verification-container">
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="logo-transparent-png.png" alt="ExpressDelivery Logo">
+            </a>
+        </div>
+        <h1>Vérification Livreur</h1>
+        
+        <div class="verification-steps">
+            <div class="step">
+                <div class="step-icon">📱</div>
+                <div class="step-content">
+                    <h3>Vérification du numéro</h3>
+                    <p>Nous devons vérifier votre numéro de téléphone</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-icon">📄</div>
+                <div class="step-content">
+                    <h3>Documents requis</h3>
+                    <p>Carte d'identité et permis de conduire valide</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-icon">🚗</div>
+                <div class="step-content">
+                    <h3>Informations véhicule</h3>
+                    <p>Type de véhicule et assurance</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-icon">✅</div>
+                <div class="step-content">
+                    <h3>Validation finale</h3>
+                    <p>Vérification et approbation de votre profil</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="verification-buttons">
+            <a href="phone-verification.html" class="verify-button primary">
+                Commencer la vérification
+            </a>
+            <a href="account-check.html" class="verify-button secondary">
+                Retour
+            </a>
+        </div>
+    </div>
+    <script src="transition.js"></script>
+</body>
+</html> 

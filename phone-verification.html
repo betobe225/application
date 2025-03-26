@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExpressDelivery - Vérification du numéro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="verification-container">
+        <h1>Vérification du numéro</h1>
+        <div class="form-group">
+            <label for="phoneNumber" class="form-label">Votre numéro de téléphone</label>
+            <input type="tel" id="phoneNumber" class="form-input" placeholder="Votre numéro de téléphone" required>
+        </div>
+        <button id="sendCode" class="verify-button">Envoyer le code</button>
+        <div id="verificationSection" style="display: none;">
+            <div class="form-group">
+                <label for="verificationCode" class="form-label">Code de vérification</label>
+                <input type="text" id="verificationCode" class="form-input" placeholder="Code de vérification" required>
+            </div>
+            <button id="verifyCode" class="verify-button">Vérifier le code</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('sendCode').addEventListener('click', async () => {
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const response = await fetch('http://localhost:3006/api/verification/phone/send', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ phoneNumber })
+            });
+
+            if (response.ok) {
+                document.getElementById('verificationSection').style.display = 'block';
+                alert('Code de vérification envoyé !');
+            } else {
+                const errorMessage = await response.json();
+                alert(errorMessage.message);
+            }
+        });
+
+        document.getElementById('verifyCode').addEventListener('click', async () => {
+            const phoneNumber = document.getElementById('phoneNumber').value;
+            const code = document.getElementById('verificationCode').value;
+            const response = await fetch('http://localhost:3006/api/verification/phone/verify', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ phoneNumber, code })
+            });
+
+            if (response.ok) {
+                alert('Numéro de téléphone vérifié avec succès !');
+                // Redirection ou autre logique ici
+            } else {
+                const errorMessage = await response.json();
+                alert(errorMessage.message);
+            }
+        });
+    </script>
+</body>
+</html> 
